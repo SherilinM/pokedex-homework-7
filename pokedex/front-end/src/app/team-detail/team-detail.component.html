@@ -1,0 +1,7 @@
+<div *ngIf="team" class="pb-5 ">
+
+    <p class="subtitle is-3 pt-5">{{ team.owner }}'s team</p>
+    <ul>
+      <li *ngFor="let pokemon of team.pokemons" class="subtitle is-5">{{ pokemon }}</li>
+    </ul>
+</div>

@@ -1,0 +1,21 @@
+<div id="search-component">
+    <label for="search-box">Pokemon search:</label>
+    <input #searchBox id="searchBox" (input)="search(searchBox.value)" />
+
+    <ul class="search-result">
+        <li class="search-list" *ngFor="let pokemon of pokemons$ | async" >
+            <a routerLink="/detail/{{ pokemon.id }}">
+                {{ pokemon.name }}
+            </a>
+        </li>
+        <li class="search-list" *ngIf="noMatches && activeSearch">
+            <a>
+            there are no pokemons with that name
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+

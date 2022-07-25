@@ -1,0 +1,47 @@
+<button class="back" type="button" [routerLink]="['/pokemon']">BACK</button>
+
+
+<div class="card">
+    <span>
+        <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{ selectedPokemon?.id }}.png" alt="" width="340" height="340">
+    </span>
+
+    <div class="info">
+
+        <h2>{{ selectedPokemon?.id }} {{ selectedPokemon?.name | uppercase }}</h2>
+
+        <span class="type" *ngFor="let type of selectedPokemon?.types" 
+        [ngClass]="{
+            'fire': this.type === 'FIRE', 
+            'flying': this.type === 'FLYING', 
+            'water': this.type === 'WATER', 
+            'ice' : this.type === 'ICE',
+            'grass': this.type === 'GRASS',
+            'poison': this.type === 'POISON', 
+            'bug': this.type === 'BUG', 
+            'fighting': this.type === 'FIGHTING', 
+            'psychic': this.type === 'PSYCHIC',
+            'normal': this.type === 'NORMAL',
+            'electric': this.type === 'ELECTRIC',
+            'fairy': this.type ==='FAIRY',
+            'rock': this.type === 'ROCK',
+            'ghost': this.type === 'GHOST'
+        }"> {{ type }} </span>
+
+        <div class="stats" *ngIf="selectedPokemon!=undefined">
+            <li>
+                <ul class="entry">{{selectedPokemon?.entry}}</ul>
+                <ul>hp: {{selectedPokemon?.hp}}</ul>
+                <ul>attack: {{selectedPokemon?.attack}}</ul>
+                <ul>defense: {{selectedPokemon?.defense}}</ul>
+                <ul>special attack: {{selectedPokemon?.specialAttack}}</ul>
+                <ul>special defense: {{selectedPokemon?.specialDefense}}</ul>
+                <ul>speed: {{selectedPokemon?.speed}}</ul>
+            </li>
+        </div>
+    </div>
+    <span class="navigation">
+        <button class="previous-page" type="button" (click)="previousPage()"></button>
+        <button class="next-page" type="button" (click)="nextPage()"></button>
+    </span>
+</div>

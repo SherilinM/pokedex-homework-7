@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-trainer">
+  <app-trainer-create (created)="reloadData()"></app-trainer-create>
+  </div>
+  <div class="container col-list">
+    <div class="trainer-block">
+        <div *ngFor="let trainer of trainers | async, let i = index" (mouseover)="highlight(trainer)" (mouseout)="highlight(null)"
+            class="card" [class.has-background-grey-lighter]="trainer===highlighted">
+
+            <a [routerLink]="['/team', i+1]">
+                <header>
+                    <p class="card-header-title">
+                        {{trainer.name}}
+                    </p>
+                </header>
+                <div class="card-image">
+                    <img src="{{trainer.photo}}" alt="Photo of {{trainer.name}}" width="300" height="300">
+                </div>
+            </a>
+
+            <div class="card-content">
+            <div class="content">
+                <ul>
+                    <li><b>Hobby</b>: {{trainer.hobby}}</li>
+                    <li><b>Age</b>: {{trainer.age}}</li>
+                </ul>
+            </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+</div>

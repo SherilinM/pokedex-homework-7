@@ -1,0 +1,27 @@
+<div class="tile is-ancestor teams-container">
+<div class="tile is-vertical is-10 center" >
+    <div class="tile is-parent is-vertical">
+
+        <div class="tile is-vertical team-item" *ngFor="let team of teams">
+            <div class="tile is-child">
+                <a [title]="team.owner + '\'s' +' team'" [routerLink]="['/team', team.id]">
+                    <p class="title is-4 pokemon-name">{{team.owner}}'s team</p>
+                </a>
+                <div class="columns">
+                    <div class="column pokemon-item" *ngFor="let pokemon of team.pokemons">
+                        <p class="subtitle is-7">{{ pokemon.name }}</p>
+                        <img class="poke-img" [src]="pokemon.url" height="120" width="120"/>
+                        <button class="delete" (click)="deletePokemon(team, pokemon)"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tile is-child search" *ngIf="team.pokemons.length < 6">
+                <app-pokemon-search></app-pokemon-search>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>

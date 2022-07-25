@@ -1,0 +1,44 @@
+.row{
+display:flex;
+}
+
+.col-trainer{
+  flex:30%;
+}
+
+.col-list{
+flex:70%;
+}
+
+.trainer-block {
+  margin: auto;
+  margin-top: 50px;
+  display: table;
+}
+
+.container {
+  width: 1200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.card {
+  width: 385px;
+  height: 470px;
+  justify-content: center;
+
+  margin: 0px 15px 15px 0px;
+
+  float: left;
+
+  padding: 0.75rem;
+  flex-basis: 33.333%;
+}

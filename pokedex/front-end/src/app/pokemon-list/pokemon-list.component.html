@@ -1,0 +1,19 @@
+<div class="header">
+    <span>
+        <button class="previous-page" type="button" (click)="previousPage()"></button>
+        <span class="page-number"> {{ page }} </span>
+        <button class="next-page" type="button" (click)="nextPage()"></button>
+    </span>
+</div>
+<div class="poke-container">
+<div class="poke-block">
+    <ul class="container" *ngFor="let pokemon of pokemonList | paginate:{itemsPerPage: 12, currentPage: page}">
+        <li>
+            <a [routerLink]="['/pokemon', pokemon.id]">
+                <img class="tile_image" src="{{pokemon.sprites}}" alt="pokedex" width="120" height="120">
+            </a>
+            <p class="tile_p">{{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}</p>
+        </li>
+    </ul>
+</div>
+</div>
